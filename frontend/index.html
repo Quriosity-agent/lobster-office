@@ -133,13 +133,13 @@
 </head>
 <body>
     <div id="office">
-        <div id="title-bar">🦞<span>大龙虾的海底办公室</span></div>
+        <div id="title-bar">🦞<span>Lobster's Underwater Office</span></div>
         <img id="bg" src="/static/office_bg.png" alt="office" />
         <img id="lobster" src="/static/lobster.gif" alt="lobster" />
         <div id="bubble"></div>
         <div id="status-bar">
             <div class="status-dot" id="dot"></div>
-            <div id="status-text">加载中...</div>
+            <div id="status-text">Loading...</div>
             <div id="status-time"></div>
         </div>
     </div>
@@ -153,25 +153,25 @@ const AREAS = {
 };
 
 const STATES = {
-    idle:        { name: '休息中',   area: 'couch',   dot: '' },
-    writing:     { name: '写文章',   area: 'library',  dot: 'working' },
-    researching: { name: '查资料',   area: 'library',  dot: 'working' },
-    executing:   { name: '写代码',   area: 'desk',     dot: 'working' },
-    coding:      { name: '编程中',   area: 'desk',     dot: 'working' },
-    syncing:     { name: '同步中',   area: 'desk',     dot: 'working' },
-    articles:    { name: '看文章',   area: 'library',  dot: 'working' },
-    error:       { name: '出错了',   area: 'couch',    dot: 'error' }
+    idle:        { name: 'Resting',   area: 'couch',   dot: '' },
+    writing:     { name: 'Writing',   area: 'library',  dot: 'working' },
+    researching: { name: 'Researching',   area: 'library',  dot: 'working' },
+    executing:   { name: 'Coding',   area: 'desk',     dot: 'working' },
+    coding:      { name: 'Programming',   area: 'desk',     dot: 'working' },
+    syncing:     { name: 'Syncing',   area: 'desk',     dot: 'working' },
+    articles:    { name: 'Reading',   area: 'library',  dot: 'working' },
+    error:       { name: 'Error',   area: 'couch',    dot: 'error' }
 };
 
 const BUBBLES = {
-    idle:        ['沙发真舒服~', '休息一下🛋️', '咖啡真好喝☕', '伸个懒腰~', '看看海景🌊'],
-    writing:     ['这篇不错📚', '记个笔记✍️', '翻翻书架', '知识就是力量💪'],
-    researching: ['让我查查📖', '找到了！', '这个有意思🤔', '再看看这本'],
-    executing:   ['写代码中⌨️', 'bug在哪🔍', '编译通过✅', '这feature搞定💪'],
-    coding:      ['commit!', '跑测试🧪', 'refactor', 'code review👀'],
-    syncing:     ['git push…', '同步💾', '部署中…', '上线！🚀'],
-    articles:    ['好文章📰', '值得分享', '学到了！', '做笔记📝'],
-    error:       ['啊哦…💥', '出bug了🐛', 'stack trace…', '马上修好🔧']
+    idle:        ['Couch is comfy~', 'Taking a break 🛋️', 'Great coffee ☕', 'Stretching~', 'Ocean view 🌊'],
+    writing:     ['Good read 📚', 'Taking notes ✍️', 'Browsing shelves', 'Knowledge is power 💪'],
+    researching: ['Let me check 📖', 'Found it!', 'Interesting... 🤔', 'One more book...'],
+    executing:   ['Coding中⌨️', 'Where is the bug 🔍', 'Build passed ✅', 'Feature done 💪'],
+    coding:      ['git commit!', 'Running tests 🧪', 'refactor', 'Code review 👀'],
+    syncing:     ['git push...', 'Syncing 💾', 'Deploying...', 'Shipped! 🚀'],
+    articles:    ['Great article 📰', 'Worth sharing', 'Learned something!', 'Taking notes 📝'],
+    error:       ['Oops... 💥', 'Found a bug 🐛', 'Stack trace...', 'Fixing it 🔧']
 };
 
 let currentState = 'idle';
@@ -230,7 +230,7 @@ function fetchStatus() {
             statusText.textContent = '[' + info.name + '] ' + (data.detail || '...');
         })
         .catch(() => {
-            statusText.textContent = '连接失败...';
+            statusText.textContent = 'Connection lost...';
         });
 }
 
