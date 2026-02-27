@@ -16,7 +16,7 @@ app = Flask(__name__, static_folder=FRONTEND_DIR, static_url_path="/static")
 # Default state
 DEFAULT_STATE = {
     "state": "idle",
-    "detail": "等待任务中...",
+    "detail": "Standing by...",
     "progress": 0,
     "updated_at": datetime.now().isoformat()
 }
@@ -59,7 +59,7 @@ def load_state():
                 age = (datetime.now() - dt).total_seconds()
             if age > ttl:
                 state["state"] = "idle"
-                state["detail"] = "待命中（自动回到休息区）"
+                state["detail"] = "Idle (auto-returned)"
                 state["progress"] = 0
                 state["updated_at"] = datetime.now().isoformat()
                 # persist the auto-idle so every client sees it consistently
