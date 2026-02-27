@@ -12,13 +12,14 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow: hidden;
             font-family: 'Courier New', monospace;
         }
         
         #office {
             position: relative;
-            width: 800px;
-            height: 600px;
+            width: 100vw;
+            height: calc(100vh - 0px);
             border: 3px solid #00a8cc;
             border-radius: 8px;
             overflow: hidden;
@@ -34,8 +35,8 @@
         
         #lobster {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             image-rendering: pixelated;
             transition: left 2.5s ease-in-out, top 2.5s ease-in-out;
             z-index: 10;
